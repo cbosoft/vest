@@ -39,9 +39,9 @@ convert_sql_to_db()
   TEXT_DB=$1
   BINARY_DB=$2
   rm -f "$BINARY_DB"
-  echo "BEGIN_TRANSACTION;" > begin.sql
-  echo "END_TRANSATION;" > end.sql
-  grep -v 'sqlite_sequence' "$TEXT_DB" | sqlite3 "$BINARY_DB"
+  echo "BEGIN TRANSACTION;" > begin.sql
+  echo "END TRANSACTION;" > end.sql
+  cat begin.sql "$TEXT_DB" end.sql | grep -v 'sqlite_sequence' | sqlite3 "$BINARY_DB"
   rm -f begin.sql end.sql
 }
 
