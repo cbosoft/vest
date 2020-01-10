@@ -1,0 +1,6 @@
+CREATE TABLE "People" (
+	"ID"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"Name"	TEXT NOT NULL,
+	"Job"	TEXT NOT NULL
+);
+CREATE TABLE sqlite_sequence(name,seq);
